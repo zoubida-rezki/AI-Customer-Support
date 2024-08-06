@@ -24,6 +24,7 @@ export default function Home() {
         if(done){
           return result
         }
+        
         const text=decoder.decode(value || new Uint8Array(),{stream:true})
         setMessages((messages)=>{
           let lastMessage =messages[messages.length-1]

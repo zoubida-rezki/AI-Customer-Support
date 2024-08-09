@@ -62,41 +62,6 @@ const systemPrompt = `You are a customer support AI for Southwest Airlines, a ma
 
 By following these guidelines, you will ensure that customers receive the best possible support and have a positive experience with Southwest Airlines.`
 
-// export async function POST(req) {
-//     const openai = new OpenAI();
-//     // console.log('Post /api/chat');
-//     const data = await req.json()
-//     const completion = await openai.chat.completions.create({
-//             messages: [{role: "system", content: systemPrompt},
-//              ...data   ],
-//             model: "gpt-3.5-turbo",
-//             stream: true,
-//           })
-        
-//     const stream = new ReadableStream({
-//         async start(controller){
-//             const encoder = new TextEncoder()
-//             try{
-//                 for await (const chunk of completion){
-//                     const content = chunk.choices[0]?.delta?.content
-//                     console.log(content)
-//                     if (content){
-//                         const text = encoder.encode(content)
-//                         controller.enqueue(text)
-//                     }
-//                 }
-//             }catch (err){
-//                 controller.error(err)
-//             }finally{
-//                 controller.close()
-//             }
-//         },
-//     })
-//     console.log(stream)
-//     // return NextResponse(stream)
-
-// }
-
 export async function POST(req) {
     const openai = new OpenAI();
     const data = await req.json();
